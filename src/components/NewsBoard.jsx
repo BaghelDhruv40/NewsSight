@@ -10,7 +10,7 @@ export default function NewsBoard({category,country}) {
         
         fetch(url,{
           headers: {
-            'X-Api-Key': apikey
+            'X-Api-Key': "dc997b37122146e7a7e7659f9fdc19ab"
           }  
         })
        .then(response=>response.json()).then(data=>{setArticles(data.articles)})
