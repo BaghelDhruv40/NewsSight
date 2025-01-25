@@ -4,10 +4,15 @@ import NewsItem from "./NewsItem"
 
 export default function NewsBoard({category,country}) {
     const [articles,setArticles]=useState([])
+    const apikey=process.env.VITE_API_KEY
     useEffect(()=>{
-        let url=`https://newsapi.org/v2/top-headlines?country=${country}&category=${category}&apiKey=${process.env.VITE_API_KEY}`;
+        let url=`https://newsapi.org/v2/top-headlines?country=${country}&category=${category}`;
         
-        fetch(url)
+        fetch(url,{
+          headers: {
+            'X-Api-Key': apikey
+          }  
+        })
        .then(response=>response.json()).then(data=>{setArticles(data.articles)})
     },[category,country])
   return (
