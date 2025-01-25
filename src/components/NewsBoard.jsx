@@ -9,7 +9,7 @@ export default function NewsBoard({category,country}) {
         
         fetch(url,{
           headers: {
-            'X-Api-Key': "dc997b37122146e7a7e7659f9fdc19ab"
+            'X-Api-Key': process.env.VITE_API_KEY
           }  
         })
        .then(response=>response.json()).then(data=>{setArticles(data.articles)})
