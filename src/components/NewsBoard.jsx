@@ -4,7 +4,6 @@ import NewsItem from "./NewsItem"
 
 export default function NewsBoard({category,country}) {
     const [articles,setArticles]=useState([])
-    const apikey=process.env.VITE_API_KEY
     useEffect(()=>{
         let url=`https://newsapi.org/v2/top-headlines?country=${country}&category=${category}`;
         
