@@ -2,6 +2,7 @@ import { useEffect } from "react"
 import { useState } from "react"
 import NewsItem from "./NewsItem"
 
+
 export default function NewsBoard({category,country}) {
     const [articles,setArticles]=useState([])
     useEffect(()=>{
@@ -9,7 +10,7 @@ export default function NewsBoard({category,country}) {
         
         fetch(url,{
           headers: {
-            'X-Api-Key': process.env.VITE_API_KEY
+            'X-Api-Key': import.meta.env.VITE_API_KEY
           }  
         })
        .then(response=>response.json()).then(data=>{setArticles(data.articles)})
